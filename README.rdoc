@@ -13,7 +13,7 @@ Before (with fast_remote_cache deploy strategy):
 
 After:
 
-  time cap staging deploy:update:
+  $ time cap staging deploy:update
 
   ...
 
