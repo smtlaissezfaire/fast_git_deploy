@@ -1,0 +1,31 @@
+= fast_git_deploy
+
+Before (with fast_remote_cache deploy strategy):
+
+  $ time cap staging deploy:update
+
+  ...
+
+  real	1m56.811s
+  user	0m0.560s
+  sys	0m0.118s
+
+
+After:
+
+  time cap staging deploy:update:
+
+  ...
+
+  real	0m19.987s
+  user	0m0.538s
+  sys	0m0.110s
+
+
+== Install it into your rails app:
+
+  script/plugin install git://github.com/smtlaissezfaire/fast_git_deploy.git
+
+== Etc:
+
+  cap deploy:git_setup:migrate - migrate an existing app with the traditional directory layout
