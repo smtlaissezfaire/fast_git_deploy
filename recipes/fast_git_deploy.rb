@@ -7,6 +7,10 @@ set(:revision_log) { "#{deploy_to}/revisions.log" }
 set(:version_file) { "#{current_path}/REVISION" }
 
 namespace :deploy do
+  task :cold do
+    git_setup.cold
+  end
+
   desc "Updates code in the repos by fetching and resetting to the latest in the branch"
   task :update_code, :except => { :no_release => true } do
     run [
