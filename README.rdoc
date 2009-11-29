@@ -23,7 +23,7 @@ After:
 
 == STATUS:
 
-  This is still beta software.  I wouldn't recommend using it in a production environment unless you understand it *completely*
+This is still beta software.  I wouldn't recommend using it in a production environment unless you understand it *completely*
 
 == Install it into your rails app:
 
