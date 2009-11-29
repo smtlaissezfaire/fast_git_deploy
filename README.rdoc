@@ -21,6 +21,9 @@ After:
   user	0m0.538s
   sys	0m0.110s
 
+== STATUS:
+
+  This is still beta software.  I wouldn't recommend using it in a production environment unless you understand it *completely*
 
 == Install it into your rails app:
 
