@@ -28,7 +28,3 @@ This is still beta software.  I wouldn't recommend using it in a production envi
 == Install it into your rails app:
 
   script/plugin install git://github.com/smtlaissezfaire/fast_git_deploy.git
-
-== Etc:
-
-  cap deploy:git_setup:migrate - migrate an existing app with the traditional directory layout
