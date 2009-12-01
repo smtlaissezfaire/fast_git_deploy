@@ -2,6 +2,7 @@ namespace :deploy do
   namespace :git_setup do
     task :cold do
       clone_repository
+      finalize_clone
       create_revision_log
 
       deploy.update
@@ -38,6 +39,7 @@ namespace :deploy do
       deploy.web.disable
       remove_old_app
       rename_clone
+      finalize_clone
       deploy.default
       deploy.web.enable
     end
@@ -70,6 +72,28 @@ namespace :deploy do
           "then mv #{current_path} #{current_path}.old",
         "fi"
       ].join("; ")
+    end
+
+
+    desc <<-HERE
+      This task will make the release group-writable (if the :group_writable \
+      variable is set to true, which is the default). It will then set up \
+      symlinks to the shared directory for the log, system, and tmp/pids \
+      directories.
+    HERE
+    task :finalize_clone do
+      run "chmod -R g+w #{current_path}" if fetch(:group_writable, true)
+
+      # mkdir -p is making sure that the directories are there for some SCM's that don't
+      # save empty folders
+      run [
+        "rm -rf #{current_path}/log #{current_path}/public/system #{current_path}/tmp/pids",
+        "mkdir -p #{current_path}/public",
+        "mkdir -p #{current_path}/tmp",
+        "ln -s #{shared_path}/log    #{current_path}/log",
+        "ln -s #{shared_path}/system #{current_path}/public/system",
+        "ln -s #{shared_path}/pids   #{current_path}/tmp/pids"
+      ].join(" && ")
     end
   end
 end
