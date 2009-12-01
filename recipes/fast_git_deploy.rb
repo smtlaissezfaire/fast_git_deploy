@@ -13,6 +13,10 @@ namespace :deploy do
     git_setup.cold
   end
 
+  task :warm do
+    git_setup.warm
+  end
+
   desc <<-DESC
     Deploy and run pending migrations. This will work similarly to the \
     `deploy' task, but will also run any pending migrations (via the \

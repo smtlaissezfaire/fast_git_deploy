@@ -33,7 +33,7 @@ namespace :deploy do
       ].join("; ")
     end
 
-    task :migrate do
+    task :warm do
       clone_repository_to_tmp_path
 
       deploy.web.disable
