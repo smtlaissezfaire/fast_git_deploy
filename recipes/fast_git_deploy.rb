@@ -9,10 +9,17 @@ set(:version_file) { "#{current_path}/REVISION" }
 set :migrate_target, :current
 
 namespace :deploy do
+  desc <<-DESC
+    Deploy a "cold" application (deploy the app for the first time).
+  DESC
   task :cold do
     git_setup.cold
   end
 
+  desc <<-DESC
+    Deploy a "warm" application - one which is already running, but was
+    setup with deploy:cold provided by capistrano's default tasks
+  DESC
   task :warm do
     git_setup.warm
   end
