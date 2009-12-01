@@ -25,10 +25,10 @@ namespace :deploy do
   end
 
   desc <<-DESC
-    Deploy and run pending migrations. This will work similarly to the \
-    `deploy' task, but will also run any pending migrations (via the \
-    `deploy:migrate' task) prior to updating the symlink. Note that the \
-    update in this case it is not atomic, and transactions are not used, \
+    Deploy and run pending migrations. This will work similarly to the
+    `deploy' task, but will also run any pending migrations (via the
+    `deploy:migrate' task) prior to updating the symlink. Note that the
+    update in this case it is not atomic, and transactions are not used,
     because migrations are not guaranteed to be reversible.
   DESC
   task :migrations do
@@ -51,15 +51,15 @@ namespace :deploy do
   end
 
   desc <<-DESC
-    [internal] Touches up the released code. This is called by update_code \
-    after the basic deploy finishes. It assumes a Rails project was deployed, \
-    so if you are deploying something else, you may want to override this \
+    [internal] Touches up the released code. This is called by update_code
+    after the basic deploy finishes. It assumes a Rails project was deployed,
+    so if you are deploying something else, you may want to override this
     task with your own environment's requirements.
 
     This will touch all assets in public/images,
-    public/stylesheets, and public/javascripts so that the times are \
-    consistent (so that asset timestamping works).  This touch process \
-    is only carried out if the :normalize_asset_timestamps variable is \
+    public/stylesheets, and public/javascripts so that the times are
+    consistent (so that asset timestamping works).  This touch process
+    is only carried out if the :normalize_asset_timestamps variable is
     set to true, which is the default.
   DESC
   task :finalize_update, :except => { :no_release => true } do

@@ -76,9 +76,9 @@ namespace :deploy do
 
 
     desc <<-HERE
-      This task will make the release group-writable (if the :group_writable \
-      variable is set to true, which is the default). It will then set up \
-      symlinks to the shared directory for the log, system, and tmp/pids \
+      This task will make the release group-writable (if the :group_writable
+      variable is set to true, which is the default). It will then set up
+      symlinks to the shared directory for the log, system, and tmp/pids
       directories.
     HERE
     task :finalize_clone do
