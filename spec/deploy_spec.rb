@@ -24,4 +24,16 @@ describe "fast git deploy" do
     cap_execute "deploy:setup"
     cap_execute "deploy:cold"
   end
+
+  it "should be able to deploy" do
+    cap_execute "deploy:setup"
+    cap_execute "deploy:cold"
+    cap_execute "deploy"
+  end
+
+  it "should be able to deploy:migrations" do
+    cap_execute "deploy:setup"
+    cap_execute "deploy:cold"
+    cap_execute "deploy:migrations"
+  end
 end
