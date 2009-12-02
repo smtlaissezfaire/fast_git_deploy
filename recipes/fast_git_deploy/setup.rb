@@ -14,7 +14,7 @@ namespace :deploy do
         "if [[ ! -e #{path} ]]",
           "then mkdir -p #{deploy_to}",
           "cd #{deploy_to}",
-          "git clone #{repository} #{path}",
+          "#{scm_command} clone #{repository} #{path}",
         "fi"
       ].join("; ")
     end

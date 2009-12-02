@@ -43,8 +43,8 @@ namespace :deploy do
   task :update_code, :except => { :no_release => true } do
     run [
       "cd #{current_path}",
-      "git fetch",
-      "git reset --hard origin/#{branch}"
+      "#{scm_command} fetch",
+      "#{scm_command} reset --hard origin/#{branch}"
     ].join(" && ")
 
     finalize_update

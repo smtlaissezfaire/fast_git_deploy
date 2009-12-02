@@ -14,8 +14,8 @@ namespace :deploy do
 
       run [
         "cd #{current_path}",
-        "git fetch",
-        "git reset --hard $(#{previous_revision})"
+        "#{scm_command} fetch",
+        "#{scm_command} reset --hard $(#{previous_revision})"
       ].join(" && ")
     end
 

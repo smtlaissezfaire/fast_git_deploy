@@ -20,8 +20,7 @@ describe "fast git deploy" do
     cap_execute "deploy:setup"
   end
 
-  it "should be able to deploy:cold" do
-    pending 'TODO'
+  it "should be able to deploy:cold after deploy:setup" do
     cap_execute "deploy:setup"
     cap_execute "deploy:cold"
   end
