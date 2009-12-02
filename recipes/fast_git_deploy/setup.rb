@@ -1,5 +1,5 @@
 namespace :deploy do
-  namespace :git_setup do
+  namespace :fast_git_setup do
     task :cold do
       clone_repository
       finalize_clone

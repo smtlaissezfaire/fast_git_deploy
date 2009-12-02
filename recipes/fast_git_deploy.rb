@@ -13,7 +13,7 @@ namespace :deploy do
     Deploy a "cold" application (deploy the app for the first time).
   DESC
   task :cold do
-    git_setup.cold
+    fast_git_setup.cold
   end
 
   desc <<-DESC
@@ -21,7 +21,7 @@ namespace :deploy do
     setup with deploy:cold provided by capistrano's default tasks
   DESC
   task :warm do
-    git_setup.warm
+    fast_git_setup.warm
   end
 
   desc <<-DESC
