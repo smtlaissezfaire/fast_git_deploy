@@ -1,5 +1,3 @@
-
-
 def self.join(*args)
   current_path = File.dirname(__FILE__)
   File.expand_path(File.join(current_path, *args))
@@ -9,6 +7,7 @@ set :application, "fast_git_deploy_test"
 set :repository,  join("..", "..", ".git")
 set :deploy_to,   join("..", "deployments")
 set :scm_command, `which git`.chomp
+set :user,        `whoami`.chomp
 
 set :scm, :git
 
