@@ -39,6 +39,17 @@ namespace :deploy do
     restart
   end
 
+  desc "Just like deploy:migrations, but puts up the maintenance page while migrating"
+  task :long do
+    set :migrate_target, :current
+    deploy.web.disable
+    update_code
+    symlink
+    migrate
+    restart
+    deploy.web.enable
+  end
+
   desc "Updates code in the repos by fetching and resetting to the latest in the branch"
   task :update_code, :except => { :no_release => true } do
     run [
