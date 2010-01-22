@@ -81,11 +81,25 @@ namespace :deploy do
     end
   end
 
-  desc "Instead of symlinking, set the revisions file.  This allows us to go back to previous versions."
+  desc "Symlink system files & set revision info"
   task :symlink, :except => { :no_release => true } do
+    symlink_system_files
     set_revisions
   end
 
+  desc "Symlink system files"
+  task :symlink_system_files, :except => { :no_release => true } do
+    run [
+      "rm -rf #{current_path}/log #{current_path}/public/system #{current_path}/tmp/pids",
+      "mkdir -p #{current_path}/public",
+      "mkdir -p #{current_path}/tmp",
+      "ln -s #{shared_path}/log    #{current_path}/log",
+      "ln -s #{shared_path}/system #{current_path}/public/system",
+      "ln -s #{shared_path}/pids   #{current_path}/tmp/pids"
+    ].join(" && ")
+  end
+
+  desc "Set the revisions file.  This allows us to go back to previous versions."
   task :set_revisions, :except => { :no_release => true } do
     set_version_file
     update_revisions_log
