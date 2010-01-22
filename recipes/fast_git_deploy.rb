@@ -101,4 +101,8 @@ namespace :deploy do
   task :update_revisions_log, :except => { :no_release => true } do
     run "echo `date +\"%Y-%m-%d %H:%M:%S\"` $USER $(cat #{version_file}) #{File.basename(release_path)} >> #{deploy_to}/revisions.log"
   end
+
+  desc "Do nothing (since we have no releases directory)"
+  task :cleanup do
+  end
 end
