@@ -34,8 +34,8 @@ namespace :deploy do
   task :migrations do
     set :migrate_target, :current
     update_code
-    migrate
     symlink
+    migrate
     restart
   end
 
