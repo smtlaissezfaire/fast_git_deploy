@@ -11,7 +11,7 @@ namespace :deploy do
 
     def self.clone_repository_command(path)
       [
-        "if [[ ! -e #{path} ]]",
+        "if [ ! -e #{path} ]",
           "then mkdir -p #{deploy_to}",
           "cd #{deploy_to}",
           "#{scm_command} clone #{repository} #{path}",
@@ -26,7 +26,7 @@ namespace :deploy do
 
     task :create_revision_log, :except => { :no_release => true } do
       run [
-        "if [[ ! -e #{revision_log} ]]",
+        "if [ ! -e #{revision_log} ]",
           "then touch #{revision_log}",
           "chmod 664 #{revision_log}",
         "fi"
@@ -59,7 +59,7 @@ namespace :deploy do
 
     task :remove_releases, :except => { :no_release => true } do
       run [
-        "if [[ -e #{deploy_to}/releases ]]",
+        "if [ -e #{deploy_to}/releases ]",
           "then mv #{deploy_to}/releases #{deploy_to}/releases.old",
         "fi"
       ].join("; ")
@@ -68,7 +68,7 @@ namespace :deploy do
     task :remove_current, :except => { :no_release => true } do
       # test -h => symlink
       run [
-        "if [[ -h #{current_path} ]]",
+        "if [ -h #{current_path} ]",
           "then mv #{current_path} #{current_path}.old",
         "fi"
       ].join("; ")
