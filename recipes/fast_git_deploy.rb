@@ -108,7 +108,7 @@ namespace :deploy do
   task :set_version_file, :except => { :no_release => true } do
     run [
       "cd #{current_path}",
-      "git rev-list origin/#{branch} | head -n 1 > #{version_file}"
+      "#{scm_command} rev-list origin/#{branch} | head -n 1 > #{version_file}"
     ].join(" && ")
   end
 
