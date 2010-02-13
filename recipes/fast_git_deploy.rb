@@ -8,6 +8,10 @@ set(:version_file) { "#{current_path}/REVISION" }
 
 set :migrate_target, :current
 
+set :release_name, 'current'
+set :releases, ['current']
+set(:releases_path) { File.join(deploy_to) }
+
 namespace :deploy do
   desc <<-DESC
     Deploy a "cold" application (deploy the app for the first time).
