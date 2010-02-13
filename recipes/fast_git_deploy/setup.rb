@@ -81,7 +81,7 @@ namespace :deploy do
       symlinks to the shared directory for the log, system, and tmp/pids
       directories.
     HERE
-    task :finalize_clone do
+    task :finalize_clone, :except => { :no_release => true } do
       run "chmod -R g+w #{current_path}" if fetch(:group_writable, true)
 
       # mkdir -p is making sure that the directories are there for some SCM's that don't
