@@ -23,8 +23,18 @@ After:
 
 == STATUS:
 
-This is still beta software.  I wouldn't recommend using it in a production environment unless you understand it *completely*
+This is still beta software - be warned.
 
 == Install it into your rails app:
 
   script/plugin install git://github.com/smtlaissezfaire/fast_git_deploy.git
+
+== Switch an existing project:
+
+  cap deploy:warm
+
+== Setup a new project:
+
+  cap deploy:setup
+  cap deploy:cold
+  cap deploy
