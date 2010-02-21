@@ -3,14 +3,12 @@ current_dir = File.dirname(__FILE__)
 load "#{current_dir}/fast_git_deploy/setup.rb"
 load "#{current_dir}/fast_git_deploy/rollback.rb"
 
-set(:revision_log) { "#{deploy_to}/revisions.log" }
-set(:version_file) { "#{current_path}/REVISION" }
-
+set :revision_log    { "#{deploy_to}/revisions.log" }
+set :version_file    { "#{current_path}/REVISION" }
 set :migrate_target, :current
-
-set :release_name, 'current'
-set :releases, ['current']
-set(:releases_path) { File.join(deploy_to) }
+set :release_name,   'current'
+set :releases,       ['current']
+set :releases_path   { File.join(deploy_to) }
 
 namespace :deploy do
   desc <<-DESC
