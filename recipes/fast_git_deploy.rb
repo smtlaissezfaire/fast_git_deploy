@@ -120,8 +120,9 @@ namespace :deploy do
     run "echo `date +\"%Y-%m-%d %H:%M:%S\"` $USER $(cat #{version_file}) >> #{deploy_to}/revisions.log"
   end
 
-  desc "Do nothing (since we have no releases directory)"
+  desc "Run git gc"
   task :cleanup do
+    run "cd #{current_path} && git gc"
   end
 
   desc <<-DESC
