@@ -1,7 +1,7 @@
-current_dir = File.dirname(__FILE__)
+current_dir = File.expand_path(File.dirname(__FILE__))
 
-load "#{current_dir}/fast_git_deploy/setup.rb"
-load "#{current_dir}/fast_git_deploy/rollback.rb"
+load File.join(current_dir, "fast_git_deploy", "setup.rb")
+load File.join(current_dir, "fast_git_deploy", "rollback.rb")
 
 set :revision_log    { "#{deploy_to}/revisions.log" }
 set :version_file    { "#{current_path}/REVISION" }
