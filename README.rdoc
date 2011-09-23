@@ -21,10 +21,6 @@ After:
   user	0m0.538s
   sys	0m0.110s
 
-== STATUS:
-
-This is still beta software - be warned.
-
 == Install it into your rails app:
 
   script/plugin install git://github.com/smtlaissezfaire/fast_git_deploy.git
