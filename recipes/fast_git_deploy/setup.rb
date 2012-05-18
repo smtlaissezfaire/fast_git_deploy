@@ -6,7 +6,7 @@ namespace :deploy do
       create_revision_log
 
       deploy.update
-      deploy.restart
+      deploy.start
     end
 
     def self.clone_repository_command(path)
