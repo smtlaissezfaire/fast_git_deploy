@@ -23,7 +23,7 @@ After:
 
 == Install it into your rails app:
 
-  script/plugin install git://github.com/smtlaissezfaire/fast_git_deploy.git
+  gem 'fast_git_deploy'
 
 == Switch an existing project:
 
