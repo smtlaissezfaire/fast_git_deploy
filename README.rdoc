@@ -1,36 +1,49 @@
 = fast_git_deploy
 
+fast_git_deploy is a series of cap tasks to speed up capistrano deploys by using git as the version source instead of checking out + symlinking on each release.
+
+The process is used internally at github and is described in http://github.com/blog/470-deployment-script-spring-cleaning
+
+Here's some perf stats (taken from a while back on a very, very slow machine):
+
 Before (with fast_remote_cache deploy strategy):
 
-  $ time cap staging deploy:update
+    $ time cap staging deploy:update
 
-  ...
+    ...
 
-  real	1m56.811s
-  user	0m0.560s
-  sys	0m0.118s
+    real	1m56.811s
+    user	0m0.560s
+    sys	0m0.118s
 
 
 After:
 
-  $ time cap staging deploy:update
+    $ time cap staging deploy:update
 
-  ...
+    ...
 
-  real	0m19.987s
-  user	0m0.538s
-  sys	0m0.110s
+    real	0m19.987s
+    user	0m0.538s
+    sys	0m0.110s
 
-== Install it into your rails app:
+== Install it into your app:
 
-  gem 'fast_git_deploy'
+Gemfile:
+
+    gem 'capistrano'
+    gem 'fast_git_deploy'
+
+config/deploy.rb
+
+    require 'fast_git_deploy'
 
 == Switch an existing project:
 
-  cap deploy:warm
+    cap deploy:warm
 
 == Setup a new project:
 
-  cap deploy:setup
-  cap deploy:cold
-  cap deploy
+    cap deploy:setup
+    cap deploy:cold
+    cap deploy
