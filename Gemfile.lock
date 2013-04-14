@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    fast_git_deploy (0.2.0)
+    fast_git_deploy (0.2.2)
 
 GEM
   remote: https://rubygems.org/

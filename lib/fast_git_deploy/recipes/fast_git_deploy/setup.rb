@@ -94,9 +94,9 @@ module FastGitDeploy
                 "rm -rf #{current_path}/log #{current_path}/public/system #{current_path}/tmp/pids",
                 "mkdir -p #{current_path}/public",
                 "mkdir -p #{current_path}/tmp",
-                "ln -s #{shared_path}/log    #{current_path}/log",
+                "ln -s #{shared_path}/log #{current_path}/log",
                 "ln -s #{shared_path}/system #{current_path}/public/system",
-                "ln -s #{shared_path}/pids   #{current_path}/tmp/pids"
+                "ln -s #{shared_path}/tmp/pids #{current_path}/tmp/pids"
               ].join(" && ")
             end
           end
